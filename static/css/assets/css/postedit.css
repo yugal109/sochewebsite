@@ -1,0 +1,134 @@
+
+.Chem
+{
+    position: absolute;
+    width: auto;
+    height: 6rem;
+    left:8rem;
+    padding-top: 0px;
+    margin-top: 0px;
+    top:-2.3rem;
+}
+.new-down-content{
+    display: none;
+}
+
+.font_post_edit
+{
+    position: absolute;
+    top:4px;
+    font: Monteserrat;
+    font-size:1rem;
+    left:2rem;
+    top:2rem;
+
+}
+
+.flex
+{
+    display:flex;
+}
+
+.right_info_post
+{
+    position: absolute;
+    left:2rem;
+}
+
+.chemicalDept
+{
+    height: 40rem;
+    width: auto;
+}
+
+#post
+{
+    position: absolute;
+    top:20rem;
+}
+
+.semesters
+{
+    /* display: flex; */
+    width: 100% !important;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center !important;
+
+    /* position: absolute; */
+    /* left:33rem; */
+}
+
+#form_post
+{
+    background-color: green !important;
+}
+
+.footer_post
+{
+    display: flex !important; 
+    background-color:white !important;
+    /* color:white !important; */
+    opacity: 0.2;
+    justify-content: space-between;
+
+    /* padding-top: 2rem; */
+    padding:2rem;
+    margin-top:2rem;
+    color:#1f1c20;
+    align-items: center !important;
+}
+
+
+@media screen and (max-width: 860px) {
+#post
+{
+    position: absolute;
+    top:19rem;
+}
+.semesters
+{
+ /* width: 1000px ;
+ */
+ /* left:2px !important;    */
+ width: 100%;
+ display: flex;
+flex-direction: column;
+padding:0.8rem
+}
+
+.Syllabus
+{
+    /* width: 100% !; */
+}
+
+.down-content a
+{
+    padding: 100%;
+}
+
+.down-content{
+    display: none;
+}
+.new-down-content{
+    display: flex;
+    /* background-color: red; */
+    justify-content: center;
+    padding: 20px;
+}
+.footer_post 
+{
+    font-family: Montserrat;
+    display: flex !important; 
+    background-color: #faf0ca !important;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    padding:2rem;
+    margin-top:2rem;
+    color:#1f1c20;
+}
+}
+
+
