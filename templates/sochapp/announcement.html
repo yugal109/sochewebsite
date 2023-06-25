@@ -1,0 +1,276 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Template Mo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>Announcements and News </title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS -->
+    <link href="{% static  'css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link href="{% static  'css/assets/css/fontawesome.css' %}" rel="stylesheet">
+    <link href="{% static  'css/assets/css/templatemo-edu-meeting.css' %}" rel="stylesheet">
+    <link href="{% static  'css/assets/css/owl.css' %}" rel="stylesheet">
+    <link href="{% static  'css/assets/css/lightbox.css' %}" rel="stylesheet">
+    <link href="{% static  'css/assets/css/postedit.css' %}" rel="stylesheet">
+
+    <!--
+
+TemplateMo 569 Edu Meeting
+
+https://templatemo.com/tm-569-edu-meeting
+
+-->
+</head>
+
+<body>
+
+
+
+    <!-- Sub Header -->
+    <!-- <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8">
+          <div class="left-content">
+          
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-4">
+          <div class="right-icons">
+            <ul>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="{% url 'home' %}" class="logo">
+                            Announcements and News
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'gallery' %}" class="active">Gallery</a></li>
+                            <li class="has-sub">
+                                <a href="javascript:void(0)">Academic Resources</a>
+                                <ul class="sub-menu">
+                                  <li><a href="{% url 'year' 'First' %}">First Year</a></li>
+                                  <li><a href="{% url 'year' 'Second' %}">Second Year</a></li>
+                                  <li><a href="{% url 'year' 'Third' %}">Third Year</a></li>
+                                  <li><a href="{% url 'year' 'Fourth' %}">Fourth Year</a></li>
+                                  <li><a href="newsletter.html">Newsletter</a></li>
+                                </ul>
+                              </li>
+                            <li><a href="{}">Announcements/News</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <section class="heading-page header-text" id="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h6>Here are the announcements.</h6>
+                    <h2>Announcements/News</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="meetings-page" id="meetings">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- <div class="filters">
+                <ul>
+                  <li data-filter="*"  class="active">All Meetings</li>
+                  <li data-filter=".soon">Soon</li>
+                  <li data-filter=".imp">Important</li>
+                  <li data-filter=".att">Attractive</li>
+                </ul>
+              </div> -->
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="row grid">
+                                {% for an in page_obj %}
+                                <div class="col-lg-4 templatemo-item-col all soon">
+                                    <div class="meeting-item">
+                                        <div class="thumb">
+                                            <a href="meeting-details.html"><img src="media/{{an.file}}" alt=""></a>
+                                        </div>
+                                        <div class="down-content">
+                                            <div class="date">
+
+                                                <h6>
+                                                    {{an.created_at|date:'F'}}
+                                                    <span>
+                                                        {{an.created_at|date:'d'}}
+                                                    </span>
+                                                </h6>
+                                                <div>
+                                                    20{{an.created_at|date:'y'}}
+                                                </div>
+
+                                            </div>
+                                            <a href="meeting-details.html">
+                                                <h4>{{an.title}}</h4>
+                                            </a>
+                                            <p>
+                                                {{an.message}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="pagination">
+                                <ul>
+                
+                                    {% if page_obj.has_previous %}
+                                    <li><a href="?page={{ page_obj.previous_page_number }}"><i
+                                                class="fa fa-angle-left"></i></a></li>
+                                    <li><a
+                                            href="?page={{ page_obj.previous_page_number }}">{{page_obj.previous_page_number}}</a>
+                                    </li>
+                                    {% else %}
+
+                                    <li><i class="fa fa-angle-left"></i></li>
+
+                                    {% endif %}
+
+
+                                    <span class="current">
+                                        <li class="active"><a href="#">{{page_obj.number}}</a></li>
+                                    </span>
+
+                                    {% if page_obj.has_next %}
+                              
+                                    <li><a
+                                            href="?page={{ page_obj.next_page_number }}">{{page_obj.next_page_number}}</a>
+                                    </li>
+                                    <li><a href="?page={{ page_obj.next_page_number|add:1 }}"><i
+                                                class="fa fa-angle-right"></i></a></li>
+
+
+                                    {% endif %}
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+
+        </div>
+    </section>
+
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'css/vendor/jquery/jquery.min.js' %}"></script>
+
+    <script src="{% static 'css/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <script src="{% static 'css/assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'css/assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'css/assets/js/lightbox.js' %}"></script>
+    <script src="{% static 'css/assets/js/tabs.js' %}"></script>
+
+    <script src="{% static 'css/assets/js/video.js' %}"></script>
+    <script src="{% static 'css/assets/js/slick-slider.js' %}"></script>
+    <script src="{% static 'css/assets/js/custom.js' %}"></script>
+
+    <script>
+        //according to loftblog tut
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+            var
+                direction = section.replace(/#/, ''),
+                reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+                reqSectionPos = reqSection.offset().top - 0;
+
+            if (isAnimate) {
+                $('body, html').animate({
+                    scrollTop: reqSectionPos
+                },
+                    800);
+            } else {
+                $('body, html').scrollTop(reqSectionPos);
+            }
+
+        };
+
+        var checkSection = function checkSection() {
+            $('.section').each(function () {
+                var
+                    $this = $(this),
+                    topEdge = $this.offset().top - 80,
+                    bottomEdge = topEdge + $this.height(),
+                    wScroll = $(window).scrollTop();
+                if (topEdge < wScroll && bottomEdge > wScroll) {
+                    var
+                        currentId = $this.data('section'),
+                        reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+                    reqLink.closest('li').addClass('active').
+                        siblings().removeClass('active');
+                }
+            });
+        };
+
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+            e.preventDefault();
+            showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+            checkSection();
+        });
+    </script>
+</body>
+
+
+</body>
+
+</html>

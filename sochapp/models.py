@@ -92,7 +92,7 @@ class Syllabus(models.Model):
         return f"{self.year}/{self.part}"
 
     class Meta:
-        verbose_name_plural = "Syllabus"
+        verbose_name_plural = "Syllabus And Academic Resources"
 
 
 class Update(models.Model):

@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -101,6 +103,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+JAZZMIN_UI_TWEAKS = {
+    "theme": "yeti"
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -130,3 +135,4 @@ print(MEDIA_ROOT)
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
