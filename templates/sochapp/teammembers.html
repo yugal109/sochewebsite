@@ -1,12 +1,164 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+  <title>team section</title>
+  <!-- Bootstrap core CSS -->
+  <link href="{% static  'css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+
+  <!-- Additional CSS Files -->
+  <link href="{% static  'css/assets/css/fontawesome.css' %}" rel="stylesheet" />
+  <link href="{% static  'css/assets/css/templatemo-edu-meeting.css' %}" rel="stylesheet" />
+  <link href="{% static  'css/assets/css/owl.css' %}" rel="stylesheet" />
+  <link href="{% static  'css/assets/css/lightbox.css' %}" rel="stylesheet" />
+  <link href="{% static  'css/assets/css/postedit.css' %}" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{% static 'css/assets/css/team.css' %}" />
 </head>
+
 <body>
-   <h1>Team</h1> 
-   {{ts}}
+  <!-- Sub Header -->
+
+
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+      <div class="This is an educational <em>HTML CSS</em> template by TemplateMo website.ow">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="{% url 'home' %}" class="font_post_edit">
+              <div class="logo_post">
+                <img class="Chem" src="{% static 'css/assets/images/sochhe.png' %}">
+              </div>
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li><a href="{% url 'team' %}">Committee</a></li>
+              <li><a href="{% url 'gallery' %}">Gallery</a></li>
+              <li class="has-sub">
+                <a href="javascript:void(0)">Academic Resources</a>
+                <ul class="sub-menu">
+                  <li><a href="{% url 'year' 'First' %}">First Year</a></li>
+                  <li><a href="{% url 'year' 'Second' %}">Second Year</a></li>
+                  <li><a href="{% url 'year' 'Third' %}">Third Year</a></li>
+                  <li><a href="{% url 'year' 'Fourth' %}">Fourth Year</a></li>
+                </ul>
+              </li>
+
+
+
+              <li class="has-sub">
+                <a href="javascript:void(0)">Others</a>
+                <ul class="sub-menu">
+                  <li><a href="{% url 'newsletter' %}">Newsletter</a></li>
+                </ul>
+              </li>
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="meetings-page" id="meetings">
+
+    {% for t in ts%}
+
+    <div class="container">
+      {% for x in t %}
+      <div class="box">
+        <div class="top-bar"></div>
+        <div class="top">
+          <i class="fa fa-check-circle" aria-hidden="true"></i>
+        </div>
+        <div class="content">
+          <img src="/media/{{x.image}}" alt="" />
+          <strong>{{x.full_name}}</strong>
+          <p>{{x.position.position}}</p>
+        </div>
+        <div class="btn">
+
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% endfor %}
+
+  </section>
+
+
+  <script src="{% static 'css/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'css/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <script src="{% static 'css/assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'css/assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'css/assets/js/lightbox.js' %}"></script>
+  <script src="{% static 'css/assets/js/tabs.js' %}"></script>
+  <script src="{% static 'css/assets/js/isotope.js' %}"></script>
+  <script src="{% static 'css/assets/js/video.js' %}"></script>
+  <script src="{% static 'css/assets/js/slick-slider.js' %}"></script>
+  <script src="{% static 'css/assets/js/custom.js' %}"></script>
+  <script>
+    //according to loftblog tut
+    $('.nav li:first').addClass('active');
+
+    var showSection = function showSection(section, isAnimate) {
+      var
+        direction = section.replace(/#/, ''),
+        reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+        reqSectionPos = reqSection.offset().top - 0;
+
+      if (isAnimate) {
+        $('body, html').animate({
+          scrollTop: reqSectionPos
+        },
+          800);
+      } else {
+        $('body, html').scrollTop(reqSectionPos);
+      }
+
+    };
+
+    var checkSection = function checkSection() {
+      $('.section').each(function () {
+        var
+          $this = $(this),
+          topEdge = $this.offset().top - 80,
+          bottomEdge = topEdge + $this.height(),
+          wScroll = $(window).scrollTop();
+        if (topEdge < wScroll && bottomEdge > wScroll) {
+          var
+            currentId = $this.data('section'),
+            reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+          reqLink.closest('li').addClass('active').
+            siblings().removeClass('active');
+        }
+      });
+    };
+
+    $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+      e.preventDefault();
+      showSection($(this).attr('href'), true);
+    });
+
+    $(window).scroll(function () {
+      checkSection();
+    });
+  </script>
+
 </body>
+
 </html>

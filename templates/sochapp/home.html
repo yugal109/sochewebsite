@@ -76,6 +76,7 @@ https://templatemo.com/tm-569-edu-meeting
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li><a href="{% url 'team' %}">Committee</a></li>
               <li><a href="{% url 'gallery' %}">Gallery</a></li>
               <li class="has-sub">
                 <a href="javascript:void(0)">Academic Resources</a>
@@ -93,8 +94,8 @@ https://templatemo.com/tm-569-edu-meeting
               <li class="has-sub">
                 <a href="javascript:void(0)">Others</a>
                 <ul class="sub-menu">
-              <li><a href="#announcement">Announcement</a></li>
-              <li><a href="#contact_b">Contact Us</a></li>
+                  <li><a href="#announcement">Announcement</a></li>
+                  <li><a href="#contact_b">Contact Us</a></li>
                   <li><a href="{% url 'newsletter' %}">Newsletter</a></li>
                 </ul>
               </li>
@@ -326,25 +327,26 @@ https://templatemo.com/tm-569-edu-meeting
             {% for message in msgs %}
 
             <div class="item">
-              <img style="border-top-left-radius: 1rem;border-top-right-radius: 1rem;"  src="/media/{{message.image}}" alt="Course One">
+              <img style="border-top-left-radius: 1rem;border-top-right-radius: 1rem;" src="/media/{{message.image}}"
+                alt="Course One">
 
               <div style="border-bottom-left-radius: 1rem;border-bottom-right-radius: 1rem;" class="down-content">
 
                 <h4>{{message.title}}</h4>
 
                 <div class="info">
-                  <div class="message_element" >
+                  <div class="message_element">
                     <div>
-                    {{message.message}}
-                    {{message.message}}
+                      {{message.message}}
+                      {{message.message}}
                     </div>
                     <div class="message_element_end">
                       <span>
-                      - {{message.full_name}}
+                        - {{message.full_name}}
                       </span>
 
                     </div>
-                   
+
                   </div>
                 </div>
               </div>
