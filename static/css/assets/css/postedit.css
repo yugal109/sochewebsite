@@ -80,6 +80,19 @@
     align-items: center !important;
 }
 
+.message_element{
+    width: 100%;
+    min-height: 5rem;
+
+}
+.message_element_end{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    font-size: 1rem;
+    font-weight: bold;
+    padding:1rem 0 1rem 1rem
+}
 
 @media screen and (max-width: 860px) {
 #post

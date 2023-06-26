@@ -5,4 +5,5 @@
     padding: 1rem;
     border-bottom-left-radius: 0.8rem;
     border-bottom-right-radius: 0.8rem;
+    min-height: 14rem;
 }

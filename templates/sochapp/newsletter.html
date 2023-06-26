@@ -1,11 +1,171 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="TemplateMo">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+  <title>SSOChE</title>
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static  'css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+  <!-- Additional CSS Files -->
+  <link href="{% static  'css/assets/css/fontawesome.css' %}" rel="stylesheet">
+  <link href="{% static  'css/assets/css/templatemo-edu-meeting.css' %}" rel="stylesheet">
+  <link href="{% static  'css/assets/css/owl.css' %}" rel="stylesheet">
+  <link href="{% static  'css/assets/css/lightbox.css' %}" rel="stylesheet">
+  <link href="{% static  'css/assets/css/postedit.css' %}" rel="stylesheet">
+  <link href="{% static  'css/assets/css/newsletter.css' %}" rel="stylesheet">
+  <!--
+
+TemplateMo 569 Edu Meeting
+
+https://templatemo.com/tm-569-edu-meeting
+
+-->
 </head>
+
 <body>
-   <h1>NEWS</h1> 
+
+  <header class="header-area header-sticky" style="margin-top: -40px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="{% url 'home' %}" class="logo">
+                         Newsletter
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="meetings.html" class="active">Gallery</a></li>
+                        <!-- <li><a href="index.html">Announcements</a></li> -->
+                        <li class="has-sub">
+                          <a href="javascript:void(0)">Academic Resources</a>
+                          <ul class="sub-menu">
+                            <li><a href="{% url 'year' 'First' %}">First Year</a></li>
+                            <li><a href="{% url 'year' 'Second' %}">Second Year</a></li>
+                            <li><a href="{% url 'year' 'Third' %}">Third Year</a></li>
+                            <li><a href="{% url 'year' 'Fourth' %}">Fourth Year</a></li>
+                          </ul>
+                        </li>
+                        <!-- <li><a href="index.html">Courses</a></li>  -->
+                        <!-- <li><a href="index.html">Contact Us</a></li>  -->
+                        <!-- <li><a href="index.html">Announcements/News</a></li>  -->
+                        <li><a href="newsletter.html">Newsletter</a></li> 
+                        
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div style="background-image: url('/static/css/assets/images/facts-bg.jpg')" class="newsletter">
+  <div class="A4">
+    <img class="letter" style="width: 20rem;height: auto;" src="{% static  'css/assets/images/1.png' %}">
+  </div>
+
+</div>
+
+    
+      <!-- Scripts -->
+      <!-- Bootstrap core JavaScript -->
+      <script src="{% static 'css/vendor/jquery/jquery.min.js' %}"></script>
+
+      <!-- <script src="{% static 'css/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script> -->
+    
+      <script src="{% static 'css/assets/js/isotope.min.js' %}"></script>
+    
+      <script src="{% static 'css/assets/js/owl-carousel.js' %}"></script>
+    
+      <script src="{% static 'css/assets/js/lightbox.js' %}"></script>
+      <script src="{% static 'css/assets/js/tabs.js' %}"></script>
+      <script src="{% static 'css/assets/js/video.js' %}"></script>
+      <script src="{% static 'css/assets/js/slick-slider.js' %}"></script>
+    
+      <script src="{% static 'css/assets/js/custom.js' %}"></script>
+
+        <script>
+            const id = window.location.href.split("#")[1];
+        
+            document.getElementById(id).scrollIntoView();
+        
+            setTimeout(() => {
+              const d = document.getElementById("messages-list")
+              d.style.display = "none"
+            }, 3000);
+        
+        
+            //according to loftblog tut
+            $('.nav li:first').addClass('active');
+        
+            var showSection = function showSection(section, isAnimate) {
+              var
+                direction = section.replace(/#/, ''),
+                reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+                reqSectionPos = reqSection.offset().top - 0;
+        
+              if (isAnimate) {
+                $('body, html').animate({
+                  scrollTop: reqSectionPos
+                },
+                  800);
+              } else {
+                $('body, html').scrollTop(reqSectionPos);
+              }
+        
+            };
+        
+            var checkSection = function checkSection() {
+              $('.section').each(function () {
+                var
+                  $this = $(this),
+                  topEdge = $this.offset().top - 80,
+                  bottomEdge = topEdge + $this.height(),
+                  wScroll = $(window).scrollTop();
+                if (topEdge < wScroll && bottomEdge > wScroll) {
+                  var
+                    currentId = $this.data('section'),
+                    reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+                  reqLink.closest('li').addClass('active').
+                    siblings().removeClass('active');
+                }
+              });
+            };
+        
+            $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+              e.preventDefault();
+              showSection($(this).attr('href'), true);
+            });
+        
+            $(window).scroll(function () {
+              checkSection();
+            });
+          </script>
+
 </body>
+
+
+
 </html>

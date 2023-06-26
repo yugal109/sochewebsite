@@ -1,0 +1,64 @@
+@keyframes opacity {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.newsletter
+{
+    width: auto!important;
+    height: 100vh !important;
+}
+
+.A4
+{  
+ width: 100;
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ animation-name: opacity!important;
+ animation-duration: 4s!important;
+ padding-top: 7rem;
+}
+
+.letter
+{
+    height:90%!important;
+    width: auto!important;
+}
+
+
+
+@media screen and (max-width: 860px) {
+    .newsletter
+    {
+        background-image:url("/soch_web/assets/images/facts-bg.jpg") ;
+        width: auto!important;
+        height: 100vh!important;
+    }
+
+
+
+.A4
+{
+   
+ width: 100%;
+ height: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+}
+
+.letter
+{
+    height:auto!important;
+    width: 85%!important;
+}
+
+
+}

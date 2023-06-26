@@ -12,6 +12,9 @@ class FeedbacksAndSuggestions(models.Model):
     def __str__(self):
         return f"{self.full_name} sent feedback - {self.title}."
 
+    class Meta:
+        verbose_name_plural = "Feedbacks"
+
 
 class Message(models.Model):
     MESSAGE_CHOICES = (
@@ -22,7 +25,6 @@ class Message(models.Model):
         ),
         ("dhod", "dhod"),
         ("president", "president"),
-
     )
 
     title = models.CharField(
@@ -30,19 +32,34 @@ class Message(models.Model):
     )
 
     message = models.TextField(blank=False, null=False, max_length=1000)
+    full_name = models.CharField(max_length=200, default="", blank=False, null=False)
+
     image = models.ImageField(upload_to="media/images/message", blank=False, null=False)
 
     def __str__(self):
         return self.title
 
 
-class Members(models.Model):
-    position = models.CharField(max_length=20, blank=False, null=False)
-    message = models.TextField(blank=False, null=False, max_length=1000)
-    image = models.ImageField(upload_to="media/images/members", blank=False, null=False)
+class MemberPosition(models.Model):
+    position = models.CharField(max_length=20, blank=False, null=False,unique=True)
+    order=models.IntegerField(default=0,blank=False,null=False)
 
     def __str__(self):
         return self.position
+
+    class Meta:
+        verbose_name_plural = "MemberPosition"
+
+
+
+class Members(models.Model):
+    position = models.ForeignKey(MemberPosition,on_delete=models.CASCADE)
+    message = models.TextField(blank=False, null=False, max_length=1000)
+    image = models.ImageField(upload_to="media/images/members", blank=False, null=False)
+    full_name = models.CharField(max_length=1000, blank=False, null=False)
+
+    def __str__(self):
+        return self.position.position
 
     class Meta:
         verbose_name_plural = "Members"
@@ -86,13 +103,13 @@ class Syllabus(models.Model):
     )
     description = models.TextField(blank=False, null=False, max_length=100000)
     file = models.FileField(upload_to="media/files/syllabus", blank=False, null=False)
-    resource_link=models.CharField(max_length=100000,default="")
+    resource_link = models.CharField(max_length=100000, default="")
 
     def __str__(self):
         return f"{self.year}/{self.part}"
 
     class Meta:
-        verbose_name_plural = "Syllabus And Academic Resources"
+        verbose_name_plural = "Syllabus/Resources"
 
 
 class Update(models.Model):
@@ -117,9 +134,14 @@ class ContactInfo(models.Model):
 class AnnouncementAndNews(models.Model):
     title = models.CharField(max_length=200, blank=False, null=False)
     message = models.TextField(blank=False, null=False, max_length=1000)
+    image = models.FileField(
+        upload_to="media/images/announcement", blank=False, null=False
+    )
+
     file = models.FileField(
         upload_to="media/files/announcement", blank=False, null=False
     )
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -127,7 +149,7 @@ class AnnouncementAndNews(models.Model):
         return self.title
 
     class Meta:
-        verbose_name_plural = "AnnouncementAndNews"
+        verbose_name_plural = "Announcements"
 
 
 class NewsLetter(models.Model):
