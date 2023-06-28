@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="{%static 'css/assets/css/owl.css' %}">
   <link rel="stylesheet" href="{%static 'css/assets/css/lightbox.css' %}">
   <link rel="stylesheet" href="{%static 'css/assets/css/postedit.css' %}">
+  <link rel="stylesheet" href="{%static 'css/assets/css/gallery.css' %}">
   <!--
 
 TemplateMo 569 Edu Meeting
@@ -73,7 +74,8 @@ https://templatemo.com/tm-569-edu-meeting
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li><a href="{% url 'home' %}">Home</a></li>
-              <li><a href="gallery.html" >Gallery</a></li>
+              <li><a href="{% url 'gallery' %}" >Gallery</a></li>
+              <li><a href="{% url 'announcement' %}" >Announcement</a></li>
               <li class="has-sub">
                 <a href="javascript:void(0)" class="active">Academic Resources</a>
                 <ul class="sub-menu">
@@ -95,8 +97,26 @@ https://templatemo.com/tm-569-edu-meeting
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
+  <section class="section main-banner" id="top" data-section="section1">
+    <video autoplay muted loop id="bg-video-new">
+      <source src="{% static 'css/assets/images/heading-bg.mp4' %}" type="video/mp4" />
+    </video>
 
-  <section class="heading-page header-text" id="top">
+    <div class="video-overlay-new header-text">
+      <div class="container">
+        <div  style="background-color: red !important">
+          <div class="col-lg-12">
+            <div style="margin-left:-3rem ;width: 100%;display: flex;justify-content: center;flex-direction: column;align-items: center;" class="caption newcap">
+              <h6>Here are the {{year}} year resources.</h6>
+              <h2>BCH {{year}} YEAR RESOURCES</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+  <!-- <section class="heading-page header-text" id="top">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -105,7 +125,7 @@ https://templatemo.com/tm-569-edu-meeting
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
   <hr>
@@ -139,17 +159,18 @@ https://templatemo.com/tm-569-edu-meeting
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'css/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'css/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/lightbox.js"></script>
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/isotope.js"></script>
-  <script src="assets/js/video.js"></script>
-  <script src="assets/js/slick-slider.js"></script>
-  <script src="assets/js/custom.js"></script>
+  <script src="{% static 'css/assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'css/assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'css/assets/js/lightbox.js' %}"></script>
+  <script src="{% static 'css/assets/js/tabs.js' %}"></script>
+  <script src="{% static 'css/assets/js/isotope.js' %}"></script>
+  <script src="{% static 'css/assets/js/video.js' %}"></script>
+  <script src="{% static 'css/assets/js/slick-slider.js' %}"></script>
+  <script src="{% static 'css/assets/js/custom.js' %}"></script>
+
   <script>
     //according to loftblog tut
     $('.nav li:first').addClass('active');

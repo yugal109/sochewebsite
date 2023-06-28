@@ -9,6 +9,8 @@
 
 .newsletter
 {
+    background-image: url("../images/meetings-bg.jpg");
+    background-size: cover;
     width: auto!important;
     height: 100vh !important;
 }
@@ -36,7 +38,8 @@
 @media screen and (max-width: 860px) {
     .newsletter
     {
-        background-image:url("/soch_web/assets/images/facts-bg.jpg") ;
+        background-image: url("../images/meetings-bg.jpg");
+    background-size: cover;
         width: auto!important;
         height: 100vh!important;
     }

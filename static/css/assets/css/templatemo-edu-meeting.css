@@ -702,6 +702,19 @@ banner
     display: none !important;
 }
 
+#bg-video-new {
+  min-width: 100%;
+  min-height: 60vh;
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+#bg-video-new::-webkit-media-controls {
+  display: none !important;
+}
+
 .video-overlay {
     position: absolute;
     background-color: rgba(31,39,43,0.75);
@@ -710,6 +723,16 @@ banner
     bottom: 0;
     right: 0;
     width: 100%;
+}
+
+.video-overlay-new {
+  position: absolute;
+  background-color: rgba(31,39,43,0.75);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
 }
 
 .main-banner .caption {
@@ -893,7 +916,7 @@ section.upcoming-meetings {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 230px;
+  padding-top: 100px;
   padding-bottom: 110px;
 }
 
@@ -1112,7 +1135,7 @@ section.our-courses {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 140px;
+  padding-top: 10px;
   padding-bottom: 130px;
 }
 
@@ -1455,7 +1478,7 @@ heading page
 */
 
 section.heading-page {
-  background-image: url(../images/heading-bg.jpg);
+  /* background-image: url(../images/heading-bg.mp4); */
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

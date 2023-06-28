@@ -7,3 +7,11 @@
     border-bottom-right-radius: 0.8rem;
     min-height: 14rem;
 }
+
+
+@media screen and (max-width: 860px) {
+    .newcap{
+        margin-left:0.1rem !important
+    }
+    
+}

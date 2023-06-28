@@ -52,8 +52,8 @@ https://templatemo.com/tm-569-edu-meeting
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="meetings.html" class="active">Gallery</a></li>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'gallery' %}" >Gallery</a></li>
                         <!-- <li><a href="index.html">Announcements</a></li> -->
                         <li class="has-sub">
                           <a href="javascript:void(0)">Academic Resources</a>
@@ -81,7 +81,7 @@ https://templatemo.com/tm-569-edu-meeting
 </header>
 
 
-<div style="background-image: url('/static/css/assets/images/facts-bg.jpg')" class="newsletter">
+<div  class="newsletter">
   <div class="A4">
     <img class="letter" style="width: 20rem;height: auto;" src="{% static  'css/assets/images/1.png' %}">
   </div>
